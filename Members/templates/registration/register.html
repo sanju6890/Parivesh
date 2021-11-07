@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Parivesh: Registration
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1 class="mt-5 text-center" style="color: green;">Please Register Yourself Here!!</h1>
+    <hr/>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success">Register</button>
+        </form>
+    </div>
+    <br/>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Parivesh: {{ page_user.user.first_name }} {{ page_user.user.last_name }}
+{% endblock %}
+{% block content %}
+<div class="container">
+  <img class="mt-5 text-center" src="{{ page_user.profile_pic.url }}" style=" border: 5px double teal;border-radius:50%;display:block;width:15%;margin-left:auto;margin-right:auto;margin-top: 10px;"></img>
+  <h1 class="text-center" style="color: brown;">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h1>
+  <hr/>
+      <p class="lead text-muted text-center">{{ page_user.bio }}</p>
+  <hr/>
+
+    <div class="alert alert-success" style="color: green;" role="alert"> 
+      <h4 class="alert-heading"><i>NITJ Community Membership Info</i></h4>
+      <hr>     
+      <h5 class="card-text"><b>Designation(i.e. Current Role):</b> {{ page_user.designation }}</h5>
+      <h5 class="card-text"><b>Department:</b> {{ page_user.department }}</h5>
+      <h5 class="card-text"><b>Gender:</b> {{ page_user.gender }}</h5>
+      {% if page_user.roll_no %}
+      <h5 class="card-text"><b>Roll Number:</b> {{ page_user.roll_no }}</h5>
+      {% endif %}
+      {% if page_user.degree_type %}
+      <h5 class="card-text"><b>Degree Type:</b> {{ page_user.degree_type }}</h5>
+      {% endif %}
+      {% if page_user.batch %}
+      <h5 class="card-text"><b>Batch(i.e. Passout Year):</b> {{ page_user.batch }}</h5>
+      {% endif %}
+      <h5 class="card-text"> <b>Social Links:</b> 
+          {% if page_user.website_url %}
+          <a href="{{ page_user.website_url }}">Website</a> &ThickSpace;
+          {% endif %}
+          {% if page_user.linkedin_url %}
+            <a href="{{ page_user.linkedin_url }}">LinkedIn</a> &ThickSpace;
+          {% endif %}
+          {% if page_user.twitter_url %}
+            <a href="{{ page_user.twitter_url }}">Twitter</a> &ThickSpace;
+          {% endif %}
+          {% if page_user.facebook_url %}
+            <a href="{{ page_user.facebook_url }}">Facebook</a> &ThickSpace;
+          {% endif %}
+          {% if page_user.instagram_url %}
+            <a href="{{ page_user.instagram_url }}">Instagram</a> &ThickSpace;
+          {% endif %}
+      </h5>
+    </div>
+
+  {% if user_plants %}
+  <div class="alert alert-success" style="color: green;" role="alert">
+    <h4 class="alert-heading"><i>Plantations Done By Me</i></h4>
+    <hr>
+    <p>
+        {% for plant in user_plants %}
+        <li>
+            <strong>{{ plant.plant_name }}</strong> planted by {{ plant.planter.first_name }} {{ plant.planter.last_name }} on {{ plant.date_time }} at <a href="{{ plant.plant_loc }}">location</a>.
+        </li>
+        {% endfor %}
+    </p>
+  {% endif %}
+  </div>
+</div>
+
+{% endblock %}

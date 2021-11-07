@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+    Parivesh: Create Profile
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+    <h1 class="mt-5 text-center">Create Your Profile Here!!</h1>
+    <p>**Fill only those columns which are applicable to you...</p>
+    <hr/>
+    <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button class="btn btn-success">Create Profile</button>
+        </form>
+    </div>
+    <br/>
+    {% else %}
+        <h1 class="mt-5">Sorry :(</h1>
+        <hr/>
+        <h5>You're not logged-in to create a profile page!</h5>
+    {% endif %}
+</div>
+
+{% endblock %}

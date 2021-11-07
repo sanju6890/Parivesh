@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Parivesh: Login
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center">
+    <h1 class="mt-5" style="color: green;">Please Sign in to Parivesh!!</h1>              
+    <hr>
+    <br/>
+    <div class="form-group">
+      <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+          
+          <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <div class="mb-3">
+          
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <br/>
+      <h6>Not a registered user? First <a href="{% url 'register' %}"><b>Sign Up</b></a></h6>
+      <button class="w-25 btn btn-success mt-2">Login</button>
+  </form>
+  </div>
+</div>
+    
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+    Parivesh: Image Gallery
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5 text-center" style="color: green">Parivesh Image Gallery Here!!</h1>
+        <hr/>    
+              <div class="row" >
+                {% for plant in object_list %}
+    
+                <div class="col-md-3">
+                  <div class="card mb-3 box-shadow">
+                    <img src="{{ plant.plant_pic.url }}" width=250 height=250 class="rounded card-img-top" alt="...">
+                    <div class="card-body text-center" style="background-color: palegreen;">
+                      <h5 class="card-text" style="color: brown;">{{ plant.plant_name }}</h5>
+                    </div>
+                  </div>
+                  </a>
+                </div>
+    
+                {% endfor %}
+              </div>
+    </div>
+{% endblock %}

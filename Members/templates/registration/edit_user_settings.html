@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+Parivesh: Edit Settings
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+    <h1 class="mt-5 text-center" style="color: green;">Edit Profile Settings Here!!</h1>
+    <hr/>
+    <div class="form-group">
+        <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success">Update Settings</button>
+    </form>
+    </div>
+    <br/>
+    {% else %}
+        <h1 class="mt-5">Sorry :(</h1>
+        <hr/>
+        <h5>You're not logged-in to access this page!</h5>
+    {% endif %}
+</div>
+
+{% endblock %}
