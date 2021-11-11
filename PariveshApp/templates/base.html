@@ -57,13 +57,13 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link px-2 text-white" href="{% url 'gallery' %}">Image Gallery</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link px-2 text-white" href="{% url 'add-plant' %}">Add Tree</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link px-2 text-white" href="{% url 'about-us' %}">About us</a>
-              </li>
-                <li class="nav-item">
-                  <a class="nav-link px-2 text-white" href="{% url 'add-plant' %}">Add Tree</a>
-                </li>            
+              </li>           
           </ul>
               <div class="text-end">
                 <ul class="navbar-nav ml-auto">
@@ -74,6 +74,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{% url 'edit-settings' %}">Edit Settings</a></li>
+                      <!-- <li><a class="dropdown-item" href="{% url 'change-password' %}">Change Password</a></li> -->
                     {% if user.profile.id %}
                       <li><a class="dropdown-item" href="{% url 'edit-profile-page' user.profile.id %}">Edit Profile</a></li>
                       <li><a class="dropdown-item" href="{% url 'show-profile-page' user.profile.id %}">My Profile</a></li>
@@ -81,7 +82,7 @@
                       <li><a class="dropdown-item" href="{% url 'create-profile-page' %}">Create Profile</a></li>   
                     {% endif %}
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a></li>
+                      <li><a class="dropdown-item" href="{% url 'signout' %}">Sign Out</a></li>
                     </ul>                
                   </li>              
                 </ul>
@@ -101,8 +102,8 @@
               </li>              
           </ul>
               <div class="text-end">
-                <a href="{% url 'login' %}"><button type="button" class="btn btn-light me-2">Login</button></a>
-                <a href="{% url 'register' %}"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                <a href="{% url 'signin' %}"><button type="button" class="btn btn-light me-2">Login</button></a>
+                <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning">Sign up</button></a>
               </div>
             </div>
             {% endif %}  
@@ -117,9 +118,9 @@
 </main>
 
 <footer class="footer mt-auto py-2 bg-dark">
-  <div class="container text-center">    
-    <span class="text-muted">
-      <p><a href="#">Back To Top</a></p>
+  <div class="container text-center">
+    <p><a href="#"><span class="badge bg-light text-dark">Back to top</span></a></p>
+    <span class="text-muted">            
       <h5><strong>NITJ Parivesh &copy; 2021</strong></h5>
     </span>
   </div>
