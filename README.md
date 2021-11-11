@@ -1,11 +1,9 @@
-# Parivesh 1.0
-NITJ-Minor-Project-ECE
-
-# Aim
-### Platform for tracking of trees planted by NITJ Community 
+![Logo](https://github.com/sanju6890/Parivesh/blob/master/PariveshApp/static/parivesh_icon.png)
+# Parivesh
+### A platform for tracking of plants planted by NITJ Community... 
 
 # Mission
-### Foster plantation thereby reducing carbon footprint  
+### Foster plantation thereby reducing carbon footprint
 
 # Contributors 
 ### [Sanjay Kumar](https://github.com/sanju6890)
