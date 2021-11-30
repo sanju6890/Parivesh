@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +27,7 @@ SECRET_KEY = 'django-insecure-*u+i$0kkb$8=wm=y%y2itc7=-m=12v&co)_+3x-0r41_cp+agu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','nitj-parivesh-blogs.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','nitj-parivesh.herokuapp.com']
 
 
 # Application definition
