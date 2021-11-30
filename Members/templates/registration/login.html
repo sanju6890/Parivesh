@@ -36,7 +36,7 @@ Parivesh: Login
       <button type="submit" class="w-25 btn btn-success mt-2">Login</button>      
   </form>
   </div>
-  <button class="w-25 btn btn-danger mt-2">Forgot Password</button>
+  <a href="{% url 'reset_password' %}"><button class="w-25 btn btn-danger mt-2">Forgot Password</button></a>
 </div>
     
 {% endblock %}

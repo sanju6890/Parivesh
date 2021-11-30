@@ -31,7 +31,12 @@
             <p>
                 {% for plant in object_list %}
                 <li>
-                    <strong>{{ plant.plant_name }}</strong> planted by {{ plant.planter.first_name }} {{ plant.planter.last_name }} on {{ plant.date_time }} at <a href="{{ plant.plant_loc }}">location</a>.
+                    <strong>{{ plant.plant_name }}</strong> planted by 
+                    {% if plant.planter.profile.id %}
+                        <a href="{% url 'show-profile-page' plant.planter.profile.id %}">{{ plant.planter.first_name }} {{ plant.planter.last_name }}</a> on {{ plant.date_time }} at <a href="{{ plant.plant_loc }}">location</a>
+                    {% else %}
+                    {{ plant.planter.first_name }} {{ plant.planter.last_name }}</a> on {{ plant.date_time }} at <a href="{{ plant.plant_loc }}">location</a>.
+                    {% endif %}
                 </li>
                 {% endfor %}
             </p>

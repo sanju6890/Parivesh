@@ -22,7 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('PariveshApp.urls')),
-    # path('Members/', include('django.contrib.auth.urls')),
+    path('Members/', include('django.contrib.auth.urls')),
     path('Members/', include('Members.urls')),
 ]
 
