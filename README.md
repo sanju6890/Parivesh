@@ -1,6 +1,6 @@
 ![Logo](https://github.com/sanju6890/Parivesh/blob/master/PariveshApp/static/parivesh_icon.png)
 # Parivesh
-### A platform for tracking trees planted by NITJ Community... 
+### A platform for tracking of plants planted by NITJ Community... 
 
 # Mission
 ### Foster plantation thereby reducing carbon footprint
