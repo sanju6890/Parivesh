@@ -22,7 +22,7 @@
                 <h2 style="color: brown;"><i>"Foster plantation thereby reducing carbon footprint"</i></h2>
             </blockquote>
             <br/>
-            <h1><span class="badge rounded-pill bg-info text-dark">Registered Users: {{ user_count }}</span> <span class="badge rounded-pill bg-success">Total Plantations: {{ plant_count }}</span></h1>
+            <h1><span class="badge rounded-pill bg-info text-dark">Registered Users: {{ user_count }}</span> <br/> <span class="badge rounded-pill bg-success">Total Plantations: {{ plant_count }}</span></h1>
         </div>
         <br/>
         <div class="alert alert-success" role="alert">
@@ -31,7 +31,13 @@
             <p>
                 {% for plant in object_list %}
                 <li>
-                    <strong>{{ plant.plant_name }}</strong> planted by {{ plant.planter.first_name }} {{ plant.planter.last_name }} on {{ plant.date_time }} at <a href="{{ plant.plant_loc }}">location</a>.
+                    <strong>{{ plant.plant_name }}</strong> planted by 
+                    {% if plant.planter.profile.id %}
+                    <a href="{% url 'show-profile-page' plant.planter.profile.id %}">{{ plant.planter.first_name }} {{ plant.planter.last_name }}</a>
+                    {% else %} 
+                    {{ plant.planter.first_name }} {{ plant.planter.last_name }} 
+                    {% endif %}
+                    on {{ plant.date_time }} at <a href="{{ plant.plant_loc }}">location</a>.
                 </li>
                 {% endfor %}
             </p>
