@@ -10,7 +10,7 @@ from django.utils import timezone
 class Plantation(models.Model):
     plant_name = models.CharField(max_length=255)
     plant_loc = models.URLField()
-    plant_pic = models.ImageField(default='default_plant_pic.jpg', upload_to='plant_pics')
+    plant_pic = models.ImageField(null=True,blank=True, upload_to='plant_pics')
     date_time = models.DateTimeField(default=timezone.now)
     planter  = models.ForeignKey(User, on_delete=CASCADE)
     remarks = models.TextField()
@@ -24,7 +24,7 @@ class Plantation(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio = models.TextField()
-    profile_pic = models.ImageField(default='default_profile_pic.jpg', upload_to="profile_pics")
+    profile_pic = models.ImageField(null=True,blank=True, upload_to="profile_pics")
     designation = models.CharField(max_length=255)
     department = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)

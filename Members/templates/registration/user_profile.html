@@ -6,7 +6,11 @@ Parivesh: {{ page_user.user.first_name }} {{ page_user.user.last_name }}
 {% endblock %}
 {% block content %}
 <div class="container">
+  {% if page_user.profile_pic %}
   <img class="mt-5 text-center" src="{{ page_user.profile_pic.url }}" style=" border: 5px double teal;border-radius:50%;display:block;width:15%;margin-left:auto;margin-right:auto;margin-top: 10px;"></img>
+  {% else %}
+  <img class="mt-5 text-center" src="{% static 'default_profile_pic.jpg' %}" style=" border: 5px double teal;border-radius:50%;display:block;width:15%;margin-left:auto;margin-right:auto;margin-top: 10px;"></img>
+  {% endif %}
   <h1 class="text-center" style="color: brown;">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h1>
   <hr/>
       <p class="lead text-muted text-center">{{ page_user.bio }}</p>

@@ -6,9 +6,13 @@ from .forms import AddPlantForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
+
 # Create your views here.
 def AboutUs(request):
     return render(request, 'about_us.html', {})
+
+def Knowledge(request):
+    return render(request, 'knowledge.html', {})
 
 class HomeView(ListView):
     model = Plantation
