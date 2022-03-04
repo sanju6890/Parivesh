@@ -1,10 +1,18 @@
 ![Logo](https://github.com/sanju6890/Parivesh/blob/master/PariveshApp/static/parivesh_icon.png)
 
-# Parivesh
-
 A platform for tracking of plants planted by NITJ Community... 
 
- Mission- Foster plantation thereby reducing carbon footprint
+Mission- Foster plantation thereby reducing carbon footprint
+
+## Features
+
+- Simple To Use UI
+- Live Users & Plants count
+- User Authentication 
+- Plant's Location on Google map
+- User Profile Page
+- Knowledge Page
+- About Us page
 
 ## Tech Stack
 
@@ -23,6 +31,23 @@ To run this project, you will need to add the following environment variables to
 'DEBUG' = True/False
 
 'HOST' = your_host_name.com
+
+## Local Deployment
+
+To deploy this project run the following commands [windows]:
+
+Create a virtual environment:
+```bash
+  py -m virtualenv <name>
+```
+Activate the virtual environment:
+```
+<name>\Script\activate
+```
+Install all the Dependencies
+```
+pip install -r requirements.txt
+```
 
 ## Contributors 
 
