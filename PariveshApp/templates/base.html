@@ -58,11 +58,14 @@
                 <a class="nav-link px-2 text-white" href="{% url 'gallery' %}">Image Gallery</a>
               </li>               -->
               <li class="nav-item">
-                <a class="nav-link text-white" href="{% url 'add-plant' %}">🌳Add Tree</a>
+                <a class="nav-link text-white" href="{% url 'add-plant' %}">🌳Add Plant</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="{% url 'knowledge' %}">💡Knowledge</a>
               </li> 
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'news' %}">📰Environment Updates</a>
+              </li>   
               <li class="nav-item">
                 <a class="nav-link text-white" href="{% url 'about-us' %}">ℹAbout us</a>
               </li>           
@@ -90,7 +93,7 @@
                 </ul>
               </div>
             </div>
-            {% else %}
+          {% else %}
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
               <li class="nav-item">
@@ -101,6 +104,9 @@
               </li> -->
               <li class="nav-item">
                 <a class="nav-link text-white" href="{% url 'knowledge' %}">💡Knowledge</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'news' %}">📰Environment Updates</a>
               </li>              
               <li class="nav-item">
                 <a class="nav-link text-white" href="{% url 'about-us' %}">ℹAbout us</a>

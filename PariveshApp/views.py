@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from .forms import AddPlantForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from decouple import config
+import requests
 
 
 # Create your views here.
@@ -13,6 +15,15 @@ def AboutUs(request):
 
 def Knowledge(request):
     return render(request, 'knowledge.html', {})
+def News(request):
+    url = "https://newsapi.org/v2/everything?q=environment&apiKey=" + config('api_key')   
+    response = requests.get(url)
+    data = response.json()
+    news_list = data['articles']
+    context = {
+        'news_list': news_list
+    }
+    return render(request, 'news.html', context)
 
 class HomeView(ListView):
     model = Plantation

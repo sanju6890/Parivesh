@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}
+Parivesh: Knowledge
+{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="container">
+        <h1 class="mt-5 text-center" style="color: lightgreen">The Latest <strong>Environment</strong> Updates...</h1>
+        <hr>
+        <div class="row mb-2">
+            {% for news in news_list %}
+            <div class="col-md-12">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative" style="background-color: skyblue;">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <h4 class="mb-0 text-center"><a href="{{ news.url }}"onMouseOver="this.style.color='blue'"
+                      onMouseOut="this.style.color='green'">{{ news.title }}</a></h4>
+                    <hr>
+                    {% if news.description %}
+                    <blockquote class="blockquote">
+                      <p><i class="card-text mb-auto">{{ news.description }} <a href="{{ news.url }}" target="_blank">Read more</a></i></p>
+                      <br>
+                      <figcaption class="blockquote-footer">
+                        {% if news.source.name %}
+                          <strong><strong class="text-danger">Source:&ThickSpace;</strong>{{ news.source.name }}</strong>
+                          {% if news.publishedAt %}
+                          <!-- <strong><strong class="text-success">Published on:&ThickSpace;</strong>{{ news.publishedAt }}</strong> -->
+                          {% endif %}
+                        {% endif %}
+                      </figcaption> 
+                    </blockquote>
+                    {% endif %}             
+                  </div>
+                  {% if news.urlToImage %}
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="{{ news.urlToImage }}" class="mx-2 my-2 rounded-3 border border-3 bd-placeholder-img" width="250" height="250" alt="Story Picture">
+                    </div>
+                  {% endif %}
+                </div>
+            </div>
+            {% endfor %} 
+        </div>
+
+    </div>
+{% endblock %}
