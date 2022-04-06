@@ -1,10 +1,6 @@
 from django.urls import path
-<<<<<<< HEAD
-from .views import *
-=======
-from .views import HomeView, AboutUs, AddPlantView, ImageGalleryView, Knowledge, News
->>>>>>> 9973761da383d491b43a454e51805aa157c08f21
 
+from .views import *
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
     path('image-gallery', ImageGalleryView.as_view(), name="gallery"),
