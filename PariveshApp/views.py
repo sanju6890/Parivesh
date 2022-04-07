@@ -15,15 +15,6 @@ def AboutUs(request):
 
 def Knowledge(request):
     return render(request, 'knowledge.html', {})
-def News(request):
-    url = "https://newsapi.org/v2/everything?q=environment&apiKey=" + config('api_key')   
-    response = requests.get(url)
-    data = response.json()
-    news_list = data['articles']
-    context = {
-        'news_list': news_list
-    }
-    return render(request, 'news.html', context)
 
 def News(request):
     url = "https://newsapi.org/v2/everything?q=environment&apiKey=" + config('api_key')

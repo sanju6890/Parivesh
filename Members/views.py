@@ -30,43 +30,42 @@ def signin(request):
     return render(request, "registration/login.html")
 
 def signup(request):
-    if request.method == "POST":
-        username = request.POST['username']
-        fname = request.POST['fname']
-        lname = request.POST['lname']
-        email = request.POST['email']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
-        
-        if User.objects.filter(username=username):
-            messages.error(request, "Username already exists! Please try some other username.")
-            return redirect('signup')
-        
-        if User.objects.filter(email=email).exists():
-            messages.error(request, "Email Already Registered!!")
-            return redirect('signup')
-        
-        if len(username)>20:
-            messages.error(request, "Username must be < 20 charcters!!")
-            return redirect('signup')
-        
-        if pass1 != pass2:
-            messages.error(request, "Passwords didn't matched!!")
-            return redirect('signup')
-        
-        if not username.isalnum():
-            messages.error(request, "Username must be Alpha-Numeric!!")
-            return redirect('signup')
-        
-        myuser = User.objects.create_user(username, email, pass1)
-        myuser.first_name = fname
-        myuser.last_name = lname
-        myuser.is_active = True
-        myuser.save()
-        messages.success(request, "Your have registered succesfully!!")     
-        return redirect('signin')        
-        
-    return render(request, "registration/register.html")
+    if request.method != "POST":
+        return render(request, "registration/register.html")
+    username = request.POST['username']
+    fname = request.POST['fname']
+    lname = request.POST['lname']
+    email = request.POST['email']
+    pass1 = request.POST['pass1']
+    pass2 = request.POST['pass2']
+
+    if User.objects.filter(username=username):
+        messages.error(request, "Username already exists! Please try some other username.")
+        return redirect('signup')
+
+    if User.objects.filter(email=email).exists():
+        messages.error(request, "Email Already Registered!!")
+        return redirect('signup')
+
+    if len(username)>20:
+        messages.error(request, "Username must be < 20 charcters!!")
+        return redirect('signup')
+
+    if pass1 != pass2:
+        messages.error(request, "Passwords didn't matched!!")
+        return redirect('signup')
+
+    if not username.isalnum():
+        messages.error(request, "Username must be Alpha-Numeric!!")
+        return redirect('signup')
+
+    myuser = User.objects.create_user(username, email, pass1)
+    myuser.first_name = fname
+    myuser.last_name = lname
+    myuser.is_active = True
+    myuser.save()
+    messages.success(request, "Your have registered succesfully!!")
+    return redirect('signin')
 
 def password_changed(request):
     return render(request, 'registration/password_changed.html',{})
@@ -111,6 +110,7 @@ class ShowProfilePageView(DetailView):
         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
         context["page_user"] = page_user
         context["user_plants"] = Plantation.objects.filter(planter = page_user.user)
+        context["user_plant_count"]= Plantation.objects.filter(planter = page_user.user).count()
         return context
 
 def signout(request):
