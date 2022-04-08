@@ -17,7 +17,7 @@ def Knowledge(request):
     return render(request, 'knowledge.html', {})
 
 def News(request):
-    url = "https://newsapi.org/v2/everything?q=environment&apiKey=" + config('api_key')
+    url = "https://newsapi.org/v2/everything?q=trees and plants&apiKey=" + config('api_key')
     response = requests.get(url)
     data = response.json()
     news_list = data['articles']
@@ -32,12 +32,20 @@ def News(request):
 class HomeView(ListView):
     model = Plantation
     template_name = 'home.html'
-    ordering = ['-date_time']
     def get_context_data(self, *args, **kwargs):
         context = super(HomeView, self).get_context_data(*args, **kwargs)
         user_count = User.objects.all().count()
         plant_count = Plantation.objects.all().count()
         context["user_count"] = user_count
+        context["plant_count"] = plant_count
+        return context
+
+class PlantationView(ListView):
+    model = Plantation
+    template_name = 'plantations.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super(PlantationView, self).get_context_data(*args, **kwargs)
+        plant_count = Plantation.objects.all().count()
         context["plant_count"] = plant_count
         return context
 

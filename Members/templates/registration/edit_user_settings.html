@@ -8,7 +8,7 @@ Parivesh: Edit Settings
     {% if user.is_authenticated %}
     <h1 class="mt-5 text-center" style="color: green;">Edit Profile Settings Here!!</h1>
     <hr/>
-    <div class="form-group">
+    <div class="d-grid gap-2 col-6 mx-auto form-group">
         <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}

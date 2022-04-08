@@ -21,7 +21,8 @@ Parivesh: Login
       </div>
     {% endfor %}
     <br/>
-    <div class="form-group">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <div class="form-group">
       <form method="POST">
       {% csrf_token %}
         <div class="mb-auto">
@@ -36,6 +37,8 @@ Parivesh: Login
       <button type="submit" class="w-25 btn btn-success mt-2">Login</button>      
   </form>
   </div>
+    </div>
+    
   <!-- <button class="w-25 btn btn-danger mt-2">Forgot Password</button> -->
 </div>
     

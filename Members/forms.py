@@ -37,12 +37,11 @@ class EditProfileForm(UserChangeForm):
 class ProfilePageForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('bio', 'profile_pic','designation','department','gender','roll_no','degree_type','batch','website_url', 'linkedin_url', 'twitter_url', 'instagram_url', 'facebook_url')
+        fields = ('bio', 'profile_pic','designation','department','roll_no','degree_type','batch','website_url', 'linkedin_url', 'twitter_url', 'instagram_url', 'facebook_url')
         widgets = {
             'bio': forms.Textarea(attrs={'class':'form-control','placeholder':'Write a short bio for your profile...'}),
             'designation': forms.TextInput(attrs={'class':'form-control','placeholder':'Current Student, Passout, Admin Staff, Academic Staff, etc.'}),
-            'department': forms.TextInput(attrs={'class':'form-control','placeholder':'For Example: ECE, CSE, IT, etc.'}),
-            'gender': forms.TextInput(attrs={'class':'form-control','placeholder':'Male or Female'}),
+            'department': forms.TextInput(attrs={'class':'form-control','placeholder':'For Example: Admin, ECE, CSE, etc.'}),
             'roll_no': forms.TextInput(attrs={'class':'form-control','placeholder':'For Example: 19104085'}),
             'degree_type': forms.TextInput(attrs={'class':'form-control','placeholder':'For Example: UG, PG, Phd, etc.'}),
             'batch': forms.TextInput(attrs={'class':'form-control','placeholder':'Fill your passing out year like 2023'}),
@@ -56,12 +55,11 @@ class ProfilePageForm(forms.ModelForm):
 class EditProfilePageForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('bio','profile_pic','designation','department','gender','roll_no','degree_type','batch', 'website_url', 'linkedin_url', 'twitter_url', 'instagram_url', 'facebook_url')
+        fields = ('bio','profile_pic','designation','department','roll_no','degree_type','batch', 'website_url', 'linkedin_url', 'twitter_url', 'instagram_url', 'facebook_url')
         widgets = {
             'bio': forms.Textarea(attrs={'class':'form-control','placeholder':'Write a short bio for your profile...'}),
             'designation': forms.TextInput(attrs={'class':'form-control','placeholder':'Current Student, Passout, Admin Staff, Academic Staff, etc.'}),
             'department': forms.TextInput(attrs={'class':'form-control','placeholder':'For Example: ECE, CSE, IT, etc.'}),
-            'gender': forms.TextInput(attrs={'class':'form-control','placeholder':'Male or Female'}),
             'roll_no': forms.TextInput(attrs={'class':'form-control','placeholder':'For Example: 19104085'}),
             'degree_type': forms.TextInput(attrs={'class':'form-control','placeholder':'For Example: UG, PG, Phd, etc.'}),
             'batch': forms.TextInput(attrs={'class':'form-control','placeholder':'Fill your passing out year like 2023'}),

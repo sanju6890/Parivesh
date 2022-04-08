@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Parivesh: Plantations' Info
+{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="container">
+        <h1 class="mt-5 text-center" style="color: green">Registered Plantations on <strong>Parivesh</strong>...</h1>
+        <hr>
+        <h1 class="text-center"><span class="badge rounded-pill bg-warning text-secondary">Total Registered Plants: {{ plant_count }}</span></h1>
+        <br>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading"><i>List Of Plantations By NITJ Community...</i></h4>            <hr>
+            <p>
+                {% for plant in object_list %}
+                <li>
+                    <strong>{{ plant.plant_name }}</strong> planted by 
+                    {% if plant.planter.profile.id %}
+                    <a href="{% url 'show-profile-page' plant.planter.profile.id %}">{{ plant.planter.first_name }} {{ plant.planter.last_name }}</a>
+                    {% else %} 
+                    {{ plant.planter.first_name }} {{ plant.planter.last_name }} 
+                    {% endif %}
+                    on {{ plant.date_time }} at <a href="{{ plant.plant_loc }}">location</a>.
+                </li>
+                {% endfor %}
+            </p>
+        </div>        
+
+    </div>
+{% endblock %}
